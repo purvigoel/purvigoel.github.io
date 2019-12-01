@@ -1,1 +1,58 @@
-Hello World
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <meta name="description" content="Sandy Harvie is a student at Brown University in Providence, Rhode Island.">
+
+        <title>Sandy Harvie</title>
+
+        <link rel="icon" href="favicon.ico"/>
+        <link rel="stylesheet" href="assets/css/core.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+        <script>
+            $.get("https://api.github.com/repos/sandyharvie/website", function(data) {
+                const lastUpdated = moment(data.updated_at, moment.ISO_8601).format("YYYY-MM-DDTHH:mm:ssZ");
+                $("#footer").append(`<p class="m-0">Last Updated: ${lastUpdated}</p>`);
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container mt-3 mb-3">
+            <div>
+                <img class="logo mr-3" src="assets/images/beach.png">
+            </div>
+
+            <div class="mt-3 mt-md-4">
+                <h1>Hi, I'm Sandy.</h1>
+
+                <h4 class="mt-2">
+                    I'm currently a software engineer at <a href="https://ansatz.capital" target="_blank">Ansatz Capital</a> working on high-frequency trading infrastructure. Previously, I studied computer science at <a href="https://www.brown.edu/" target="_blank">Brown University</a> in Providence, Rhode Island.
+                </h4>
+
+                <h4 class="mt-2">
+                    In the past, I've worked as a software engineering intern at <a href="https://www.twosigma.com" target="_blank">Two Sigma</a> and <a href="https://www.blend.com" target="_blank">Blend</a>.
+                </h4>
+
+                <h4 class="mt-2">
+                    I'm interested in all things software, but my primary interests lie in operating systems, security, and distributed computing.
+                </h4>
+
+                <h4 class="mt-2">
+                    If you'd like to learn more, check out my <a href="assets/resume.pdf" target="_blank">resume</a>, connect with me on <a href="https://www.linkedin.com/in/sandyharvie" target="_blank">LinkedIn</a>, or send me an <a href="mailto:csharvie16@gmail.com">email</a>.
+                </h4>
+            </div>
+
+            <div class="pt-3 pt-md-4">
+                <hr>
+
+                <div id="footer" class="mt-2 flex flex-center flex-justify flex-wrap">
+                    <p class="m-0 mr-3">Sandy Harvie</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
